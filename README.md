@@ -5,7 +5,7 @@
 ## 项目地址
 
 - GitHub: [https://github.com/KINNONG/tiktok-clone](https://github.com/KINNONG/tiktok-clone)
-- Demo: [https://tiktok-clone-kinnong.vercel.app](https://tiktok-clone-kinnong.vercel.app)
+- Demo: [https://tiktok-clone-ashy.vercel.app](https://tiktok-clone-ashy.vercel.app)
 
 ## 技术栈
 
