@@ -1,101 +1,151 @@
-import Image from "next/image";
+"use client";
+
+import { VideoCard } from "@/components/features/VideoCard";
+import { MainLayout } from "@/components/layout/MainLayout";
+
+const videos = [
+  {
+    id: 1,
+    title: "城市夜景延时摄影 #城市 #夜景",
+    author: "摄影师阿杰",
+    likes: "12.5w",
+    comments: "1.2k",
+    shares: "3.4k",
+    thumbnail: "https://images.pexels.com/photos/1722183/pexels-photo-1722183.jpeg",
+    video: "https://www.pexels.com/download/video/857251",
+    avatar: "https://picsum.photos/seed/photo1/100/100",
+  },
+  {
+    id: 2,
+    title: "海浪拍打沙滩 #自然 #海洋",
+    author: "自然摄影师",
+    likes: "8.9w",
+    comments: "5.6k",
+    shares: "2.1w",
+    thumbnail: "https://images.pexels.com/photos/1295138/pexels-photo-1295138.jpeg",
+    video: "https://www.pexels.com/download/video/1409899",
+    avatar: "https://picsum.photos/seed/photo2/100/100",
+  },
+  {
+    id: 3,
+    title: "雨滴落在窗户上 #雨天 #意境",
+    author: "生活记录者",
+    likes: "15.2w",
+    comments: "2.3w",
+    shares: "4.5w",
+    thumbnail: "https://images.pexels.com/photos/125510/pexels-photo-125510.jpeg",
+    video: "https://www.pexels.com/download/video/3045163",
+    avatar: "https://picsum.photos/seed/photo3/100/100",
+  },
+  {
+    id: 4,
+    title: "日落时分的海滩 #日落 #风景",
+    author: "风光摄影师",
+    likes: "6.7w",
+    comments: "3.2k",
+    shares: "1.8k",
+    thumbnail: "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg",
+    video: "https://www.pexels.com/download/video/1550080",
+    avatar: "https://picsum.photos/seed/photo4/100/100",
+  },
+  {
+    id: 5,
+    title: "繁忙城市的车流 #城市 #延时",
+    author: "城市记录者",
+    likes: "4.5w",
+    comments: "8.9k",
+    shares: "2.3w",
+    thumbnail: "https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg",
+    video: "https://www.pexels.com/download/video/1721294",
+    avatar: "https://picsum.photos/seed/photo5/100/100",
+  },
+  {
+    id: 6,
+    title: "雪山日出美景 #自然 #雪山",
+    author: "户外摄影师",
+    likes: "3.4w",
+    comments: "4.5k",
+    shares: "1.2k",
+    thumbnail: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg",
+    video: "https://www.pexels.com/download/video/6963744",
+    avatar: "https://picsum.photos/seed/photo6/100/100",
+  },
+  {
+    id: 7,
+    title: "瀑布流水特写 #自然 #瀑布",
+    author: "自然探索者",
+    likes: "9.2w",
+    comments: "3.1k",
+    shares: "2.8k",
+    thumbnail: "https://images.pexels.com/photos/2609954/pexels-photo-2609954.jpeg",
+    video: "https://www.pexels.com/download/video/5752724",
+    avatar: "https://picsum.photos/seed/photo7/100/100",
+  },
+  {
+    id: 8,
+    title: "城市夜景霓虹 #城市 #夜景",
+    author: "夜景摄影师",
+    likes: "5.6w",
+    comments: "4.2k",
+    shares: "1.9k",
+    thumbnail: "https://images.pexels.com/photos/1538177/pexels-photo-1538177.jpeg",
+    video: "https://www.pexels.com/download/video/1826392",
+    avatar: "https://picsum.photos/seed/photo8/100/100",
+  },
+  {
+    id: 9,
+    title: "海底珊瑚世界 #海洋 #自然",
+    author: "海洋摄影师",
+    likes: "7.8w",
+    comments: "6.5k",
+    shares: "3.3k",
+    thumbnail: "https://images.pexels.com/photos/3875821/pexels-photo-3875821.jpeg",
+    video: "https://www.pexels.com/download/video/3641578",
+    avatar: "https://picsum.photos/seed/photo9/100/100",
+  },
+  {
+    id: 10,
+    title: "森林晨雾缭绕 #自然 #森林",
+    author: "自然摄影师",
+    likes: "12.4w",
+    comments: "8.7k",
+    shares: "5.6k",
+    thumbnail: "https://images.pexels.com/photos/167698/pexels-photo-167698.jpeg",
+    video: "https://www.pexels.com/download/video/5752771",
+    avatar: "https://picsum.photos/seed/photo10/100/100",
+  },
+  {
+    id: 11,
+    title: "城市天际线日落 #城市 #日落",
+    author: "城市摄影师",
+    likes: "6.9w",
+    comments: "4.8k",
+    shares: "2.5k",
+    thumbnail: "https://images.pexels.com/photos/1434580/pexels-photo-1434580.jpeg",
+    video: "https://www.pexels.com/download/video/1721307",
+    avatar: "https://picsum.photos/seed/photo11/100/100",
+  },
+  {
+    id: 12,
+    title: "星空延时摄影 #星空 #夜景",
+    author: "天文摄影师",
+    likes: "8.3w",
+    comments: "5.9k",
+    shares: "3.1k",
+    thumbnail: "https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg",
+    video: "https://www.pexels.com/download/video/1851190",
+    avatar: "https://picsum.photos/seed/photo12/100/100",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <MainLayout>
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+        {videos.map((video) => (
+          <VideoCard key={video.id} video={video} />
+        ))}
+      </div>
+    </MainLayout>
   );
 }
