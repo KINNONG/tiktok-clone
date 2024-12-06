@@ -2,6 +2,11 @@
 
 基于 Next.js 14 构建的抖音克隆项目。
 
+## 项目地址
+
+- GitHub: [https://github.com/KINNONG/tiktok-clone](https://github.com/KINNONG/tiktok-clone)
+- Demo: [https://tiktok-clone-kinnong.vercel.app](https://tiktok-clone-kinnong.vercel.app)
+
 ## 技术栈
 
 - Next.js 14
@@ -21,6 +26,12 @@
 ## 本地开发
 
 ```bash
+# 克隆项目
+git clone https://github.com/KINNONG/tiktok-clone.git
+
+# 进入项目目录
+cd tiktok-clone
+
 # 安装依赖
 npm install
 
@@ -33,10 +44,6 @@ npm run build
 # 启动生产服务器
 npm start
 ```
-
-## 在线预览
-
-[在线演示地址](https://your-demo-url.vercel.app)
 
 ## 许可证
 
