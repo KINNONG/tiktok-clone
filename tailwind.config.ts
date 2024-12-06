@@ -60,8 +60,5 @@ const config: Config = {
     },
   },
   plugins: [animate],
-  corePlugins: {
-    scrollbar: false,
-  },
 };
 export default config;
